@@ -1,0 +1,22 @@
+* {
+	font-family: Helvetica;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background: center top no-repeat;
+	background-size: cover;
+	z-index: 10;
+}
+a {
+	text-decoration: none
+}
+
+body{
+	width: 80%;
+	height: 80vh;
+	font-family: 'Roboto', sans-serif;
+	background-image: url(../../Header/images/genshin.png);
+	background-position: center;
+	background-size: cover;
+	box-sizing: border-box;
+  }
