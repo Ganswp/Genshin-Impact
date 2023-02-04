@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Genshin Impact – Step Into a Vast Magical World of Adventure</title>
+    <link rel="shorcut icon" href="Pages/images/Logo/paimon.png" />
+    <meta charset="utf-8" />
+    <meta name="author" content="Eqnoxx" />
+    <script
+      src="landing pages/js/jquery-1.11.1.min.js"
+      type="text/javascript"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="landing pages/css/default.css"
+    />
+    <link rel="stylesheet" type="text/css" href="landing pages/css/bar.css" />
+    <link rel="stylesheet" type="text/css" href="landing pages/css/os.css" />
+    <link rel="stylesheet" type="text/css" href="landing pages/css/video.css" />
+  </head>
+  <body>
+    <div id="loading"></div>
+    <div id="bar">
+      <div class="logo"></div>
+      <div class="float_frame">
+        <a href="official-site.html" class="home on">HOME</a>
+        <a href="https://genshin.hoyoverse.com/en/" class="on" target="_blank"
+          >NEWS</a
+        >
+        <a href="https://www.hoyoverse.com/en-us/" class="on" target="_blank"
+          >HOYOVERSE</a
+        >
+
+        <a
+          href="https://www.hoyolab.com/home"
+          class="in_more on"
+          target="_blank"
+          >HOYOLAB</a
+        >
+        <div class="slide-item"></div>
+      </div>
+
+      <a
+        href="https://ys-api-os.mihoyo.com/event/download_porter/link/ys_global/genshinimpactpc/default"
+        class="download"
+      ></a>
+    </div>
+    <header>
+      <img src="landing pages/element/os/header/3.4.jpg" alt="" />
+      <div class="title">
+        <div class="video">
+          <div class="player">
+            <div1 class="circle"></div1>
+            <div2 class="trangle"></div2>
+          </div>
+        </div>
+        <p>The Exquisite Night Chimes</p>
+      </div>
+      <div class="arrow-frame">
+        <div class="arrows arrow1"></div>
+        <div class="arrows arrow2"></div>
+        <div class="arrows arrow3"></div>
+      </div>
+    </header>
+    <article>
+      <div class="city">
+        <ul>
+          <li>
+            <a href="Pages/Mondstadt.html">
+              <div1 class="border qin"></div1>
+              <div2 class="back mond"></div2>
+              <p class="text">Mondstadt</p>
+            </a>
+          </li>
+          <li>
+            <a href="Pages/Liyue.html">
+              <div1 class="border xiao"></div1>
+              <div2 class="back liyue"></div2>
+              <p class="text">Liyue</p>
+            </a>
+          </li>
+          <li>
+            <a href="Pages/Inazuma.html">
+              <div1 class="border ayaka"></div1>
+              <div2 class="back inazuma"></div2>
+              <p class="text">Inazuma</p>
+            </a>
+          </li>
+          <li>
+            <a href="Pages/Sumeru.html">
+              <div1 class="border tignari"></div1>
+              <div2 class="back sumeru"></div2>
+              <p class="text">Sumeru</p>
+            </a>
+          </li>
+          <li>
+            <div class="coming">
+              <p class="coming-text">Coming Soon</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!--videos-->
+    <div class="video-back">
+      <div class="video-frame">
+        <button></button>
+        <iframe
+          src="about:blank"
+          scrolling="no"
+          border="0"
+          frameborder="no"
+          framespacing="0"
+          allowfullscreen="true"
+        ></iframe>
+      </div>
+    </div>
+    <!--videos-->
+
+    <script src="js/bar.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      function sleep(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+      }
+
+      //bar-slide-item
+      $(".float_frame .on").hover(
+        function () {
+          $(".float_frame .slide-item").addClass("on-" + $(this).index());
+        },
+        function () {
+          $(".float_frame .slide-item").removeClass("on-" + $(this).index());
+        }
+      );
+      //bar-slide-item
+
+      //news-slide
+      function newsSlide(index) {
+        $(".news-list .slide").css(
+          "transform",
+          "translateX(-" + index * 640 + "px)"
+        );
+        $(".news-list .p").removeClass("p-active");
+        $(".news-list .p")
+          .filter(":eq(" + index + ")")
+          .addClass("p-active");
+      }
+      var news_index = 0;
+      function autoSlide() {
+        news_index = (news_index + 1) % 4;
+        newsSlide(news_index);
+      }
+      var auto_slide = setInterval(autoSlide, 2000);
+      $(".news-list .p").click(function () {
+        clearInterval(auto_slide);
+        news_index = $(this).index();
+        newsSlide(news_index);
+        auto_slide = setInterval(autoSlide, 2000);
+      });
+      //news-slide
+
+      //video-1
+      $(".title .player").click(function () {
+        $(".video-back").addClass("video-active");
+        $(".video-back iframe").attr(
+          "src",
+          "https://www.youtube.com/embed/FiEuMkRNQ7A?autoplay=1&amp;controls=1&amp;enablejsapi=1&amp;playsinline=1&amp;loop=0&amp;videoId=FiEuMkRNQ7A&amp;mute=0&amp;widget_referrer=https%3A%2F%2Fgenshin.hoyoverse.com%2F&amp;origin=https%3A%2F%2Fact.hoyoverse.com&amp;widgetid=1"
+        );
+        $("body").css("overflow", "hidden");
+      });
+      //close
+      $(".video-back button").click(function () {
+        $(".video-back iframe").attr("src", "about:blank");
+        $(".video-back").removeClass("video-active");
+        $("body").css("overflow", "auto");
+      });
+      //videos
+    </script>
+  </body>
+</html>
